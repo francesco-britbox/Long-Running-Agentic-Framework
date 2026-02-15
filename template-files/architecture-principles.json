@@ -1,0 +1,202 @@
+{
+  "principles": [
+    {
+      "id": "DRY-001",
+      "name": "Don't Repeat Yourself",
+      "rule": "No code duplication. Extract to shared functions/components.",
+      "language_pattern": "Use utilities folder for shared code",
+      "verification_steps": [
+        "Search codebase for duplicate logic patterns",
+        "Check if similar functions exist in utils/",
+        "Verify component reusability"
+      ],
+      "violation_examples": [
+        "Same validation logic in multiple files",
+        "Duplicated API call patterns",
+        "Copy-pasted error handling"
+      ],
+      "compliant_examples": [
+        "ValidationUtils module for shared validators",
+        "APIClient with reusable request methods",
+        "ErrorHandler utility for consistent error processing"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "SOLID-SRP",
+      "name": "Single Responsibility Principle",
+      "rule": "Each component/function has one reason to change",
+      "language_pattern": "Separate UI, business logic, and data layers",
+      "verification_steps": [
+        "Component handles only one concern",
+        "No mixed UI and business logic",
+        "Clear separation of data access"
+      ],
+      "violation_examples": [
+        "Component that renders AND fetches data AND validates",
+        "Function that does logging AND computation AND I/O"
+      ],
+      "compliant_examples": [
+        "Separate DataService, ValidationService, UIComponent",
+        "render() for UI, fetchData() for data, validate() for logic"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "id": "SOLID-OCP",
+      "name": "Open/Closed Principle",
+      "rule": "Open for extension, closed for modification",
+      "language_pattern": "Use interfaces/inheritance for extensibility",
+      "verification_steps": [
+        "New features don't modify existing code",
+        "Extension through inheritance or composition",
+        "Configuration over hard-coding"
+      ],
+      "violation_examples": [
+        "Adding if-else chains for new feature types",
+        "Modifying core classes for each new requirement"
+      ],
+      "compliant_examples": [
+        "Plugin architecture for new features",
+        "Strategy pattern for different algorithms",
+        "Configuration files for variations"
+      ],
+      "enforcement": "recommended",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "id": "SOLID-LSP",
+      "name": "Liskov Substitution Principle",
+      "rule": "Subtypes must be substitutable for their base types",
+      "language_pattern": "Derived classes honor base class contracts",
+      "verification_steps": [
+        "Subclass can replace parent without breaking",
+        "No strengthened preconditions",
+        "No weakened postconditions"
+      ],
+      "violation_examples": [
+        "Subclass that throws on parent's method",
+        "Subclass that requires different parameters"
+      ],
+      "compliant_examples": [
+        "All Shape subclasses properly implement area()",
+        "All DataSource subclasses return same data format"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "id": "SOLID-ISP",
+      "name": "Interface Segregation Principle",
+      "rule": "Clients shouldn't depend on interfaces they don't use",
+      "language_pattern": "Small, focused interfaces over large ones",
+      "verification_steps": [
+        "Interfaces contain only related methods",
+        "No empty/stub method implementations",
+        "Clients depend on minimal interface"
+      ],
+      "violation_examples": [
+        "Large interface with 20+ methods",
+        "Implementing interface but leaving methods empty"
+      ],
+      "compliant_examples": [
+        "Separate interfaces: IReadable, IWritable, IDeletable",
+        "Clients implement only what they need"
+      ],
+      "enforcement": "recommended",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "id": "SOLID-DIP",
+      "name": "Dependency Inversion Principle",
+      "rule": "Depend on abstractions, not concrete implementations",
+      "language_pattern": "Use interfaces/protocols for services",
+      "verification_steps": [
+        "Services injected via constructor/init",
+        "No direct instantiation of dependencies",
+        "Mock-friendly architecture for testing"
+      ],
+      "violation_examples": [
+        "Creating new DatabaseClient() inside class",
+        "Hard-coded service dependencies",
+        "Cannot test without real database"
+      ],
+      "compliant_examples": [
+        "constructor(dataService: IDataService)",
+        "Dependency passed in, not created",
+        "Tests inject mock services"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "ERROR-001",
+      "name": "Comprehensive Error Handling",
+      "rule": "All operations that can fail must have error handling",
+      "language_pattern": "Try-catch or equivalent for all I/O, parsing, external calls",
+      "verification_steps": [
+        "All API calls wrapped in error handlers",
+        "User-friendly error messages",
+        "Errors logged with context"
+      ],
+      "violation_examples": [
+        "fetch() without .catch()",
+        "JSON.parse() without try-catch",
+        "Generic 'Error occurred' messages"
+      ],
+      "compliant_examples": [
+        "try { JSON.parse() } catch (e) { log + user message }",
+        "fetch().catch(err => handleNetworkError(err))",
+        "Specific error messages: 'Failed to load user profile'"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "TEST-001",
+      "name": "Test Coverage",
+      "rule": "All new code must have tests",
+      "language_pattern": "Unit tests for logic, integration tests for flows",
+      "verification_steps": [
+        "New functions have unit tests",
+        "Happy path covered",
+        "Edge cases covered",
+        "Error cases covered"
+      ],
+      "violation_examples": [
+        "New feature with no tests",
+        "Only happy path tested"
+      ],
+      "compliant_examples": [
+        "test_add_success(), test_add_negative(), test_add_overflow()",
+        "Integration test for full user flow"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["dev-agent", "qa-agent"]
+    },
+    {
+      "id": "DOC-001",
+      "name": "Code Documentation",
+      "rule": "Public APIs must be documented",
+      "language_pattern": "JSDoc/docstrings for public functions and classes",
+      "verification_steps": [
+        "Public functions have descriptions",
+        "Parameters documented",
+        "Return values documented",
+        "Exceptions/errors documented"
+      ],
+      "violation_examples": [
+        "Public function with no comment",
+        "Unclear parameter names with no explanation"
+      ],
+      "compliant_examples": [
+        "/** Calculates user score. @param {User} user @returns {number} */",
+        "Docstring explaining function purpose and usage"
+      ],
+      "enforcement": "recommended",
+      "checked_by": ["code-reviewer"]
+    }
+  ]
+}

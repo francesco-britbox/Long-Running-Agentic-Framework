@@ -1,0 +1,30 @@
+{
+  "_comment": "Generate this file for your stack. Define formatting, naming, and documentation standards specific to your language/framework.",
+  "standards": [
+    {
+      "id": "NAME-001",
+      "name": "Naming Conventions",
+      "rules": [
+        "Define naming conventions for your language here",
+        "Variables, functions, classes, files, etc."
+      ]
+    },
+    {
+      "id": "FMT-001",
+      "name": "Formatting",
+      "rules": [
+        "Define formatting standards here",
+        "Indentation, line length, imports ordering, etc."
+      ]
+    },
+    {
+      "id": "DOC-001",
+      "name": "Documentation",
+      "rules": [
+        "Public APIs must be documented",
+        "Parameters and return values documented",
+        "Complex logic explained with comments"
+      ]
+    }
+  ]
+}

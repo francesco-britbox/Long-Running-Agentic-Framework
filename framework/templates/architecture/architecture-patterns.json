@@ -1,0 +1,30 @@
+{
+  "_comment": "Generate this file for your stack. Define file structure, module patterns, and naming conventions specific to your language/framework.",
+  "patterns": [
+    {
+      "id": "STRUCT-001",
+      "name": "File Structure",
+      "description": "Define your project's file organization pattern here",
+      "structure": {
+        "src/": "Source code",
+        "tests/": "Test files",
+        "docs/": "Documentation"
+      },
+      "rules": [
+        "One component per file",
+        "Tests mirror source structure",
+        "Shared utilities in dedicated folder"
+      ]
+    },
+    {
+      "id": "MOD-001",
+      "name": "Module Pattern",
+      "description": "Define how modules are organized and exported",
+      "rules": [
+        "Each module has a single public interface",
+        "Internal implementation details are private",
+        "Dependencies declared at module level"
+      ]
+    }
+  ]
+}

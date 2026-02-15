@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Framework — Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Agentic Framework</h1>
+    <div id="stats">
+      <span id="stat-complete">0</span>/<span id="stat-total">0</span> complete
+    </div>
+  </header>
+
+  <div id="openspec-panel" class="hidden">
+    <div class="openspec-header">OpenSpec Changes</div>
+    <div id="openspec-changes"></div>
+  </div>
+
+  <div id="board">
+    <div class="column" data-status="pending">
+      <div class="column-header">
+        <span class="dot dot-pending"></span>
+        Pending
+        <span class="count" id="count-pending">0</span>
+      </div>
+      <div class="cards" id="cards-pending"></div>
+    </div>
+
+    <div class="column" data-status="in-dev">
+      <div class="column-header">
+        <span class="dot dot-in-dev"></span>
+        In Dev
+        <span class="count" id="count-in-dev">0</span>
+      </div>
+      <div class="cards" id="cards-in-dev"></div>
+    </div>
+
+    <div class="column" data-status="ready-for-review">
+      <div class="column-header">
+        <span class="dot dot-review"></span>
+        Review
+        <span class="count" id="count-ready-for-review">0</span>
+      </div>
+      <div class="cards" id="cards-ready-for-review"></div>
+    </div>
+
+    <div class="column" data-status="approved">
+      <div class="column-header">
+        <span class="dot dot-approved"></span>
+        Approved
+        <span class="count" id="count-approved">0</span>
+      </div>
+      <div class="cards" id="cards-approved"></div>
+    </div>
+
+    <div class="column" data-status="needs-revision">
+      <div class="column-header">
+        <span class="dot dot-revision"></span>
+        Needs Revision
+        <span class="count" id="count-needs-revision">0</span>
+      </div>
+      <div class="cards" id="cards-needs-revision"></div>
+    </div>
+
+    <div class="column" data-status="qa-testing">
+      <div class="column-header">
+        <span class="dot dot-qa"></span>
+        QA Testing
+        <span class="count" id="count-qa-testing">0</span>
+      </div>
+      <div class="cards" id="cards-qa-testing"></div>
+    </div>
+
+    <div class="column" data-status="pr-open">
+      <div class="column-header">
+        <span class="dot dot-pr"></span>
+        PR Open
+        <span class="count" id="count-pr-open">0</span>
+      </div>
+      <div class="cards" id="cards-pr-open"></div>
+    </div>
+
+    <div class="column" data-status="complete">
+      <div class="column-header">
+        <span class="dot dot-complete"></span>
+        Complete
+        <span class="count" id="count-complete">0</span>
+      </div>
+      <div class="cards" id="cards-complete"></div>
+    </div>
+  </div>
+
+  <div id="detail-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

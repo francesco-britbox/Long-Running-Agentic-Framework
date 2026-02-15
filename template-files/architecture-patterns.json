@@ -1,0 +1,86 @@
+{
+  "patterns": [
+    {
+      "pattern_name": "Component Structure",
+      "description": "Standard structure for all components",
+      "required_structure": {
+        "init": "Constructor/initialization with dependency injection",
+        "render": "UI rendering logic only",
+        "handleEvents": "Event handling and delegation",
+        "cleanup": "Resource disposal and teardown"
+      },
+      "file_locations": {
+        "components": "src/components/",
+        "shared": "src/components/shared/",
+        "utils": "src/utils/"
+      },
+      "naming_convention": "PascalCase for components, camelCase for methods",
+      "verification": "All components follow this 4-method structure",
+      "checked_by": ["code-reviewer", "architect-agent"]
+    },
+    {
+      "pattern_name": "Service Layer",
+      "description": "All external data access through service layer",
+      "structure": {
+        "interface": "IDataService with contracts",
+        "implementation": "Concrete service implementing interface",
+        "injection": "Services injected via constructor",
+        "location": "src/services/"
+      },
+      "example": {
+        "interface_file": "src/services/IAuthService.ts",
+        "implementation_file": "src/services/AuthService.ts",
+        "usage": "constructor(authService: IAuthService)"
+      },
+      "verification": "No direct API calls outside service layer",
+      "checked_by": ["code-reviewer", "architect-agent"]
+    },
+    {
+      "pattern_name": "Error Handling",
+      "description": "Consistent error handling across codebase",
+      "pattern": {
+        "try_catch": "Wrap all async operations",
+        "error_types": "Use typed errors (ValidationError, NetworkError, etc.)",
+        "logging": "Log errors with context before displaying to user",
+        "user_messages": "User-friendly messages, not technical errors"
+      },
+      "example": "try { await api.fetch() } catch (e) { logger.error(e); showError('Failed to load') }",
+      "verification": "All I/O operations have error handling",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "pattern_name": "File Organization",
+      "description": "Standard folder structure",
+      "structure": {
+        "src/": "All source code",
+        "src/components/": "UI components",
+        "src/services/": "Business logic and data access",
+        "src/utils/": "Shared utilities",
+        "src/types/": "Type definitions",
+        "tests/": "Test files mirroring src/ structure"
+      },
+      "naming": {
+        "components": "ComponentName.tsx",
+        "services": "ServiceName.ts",
+        "utils": "utilityName.ts",
+        "tests": "ComponentName.test.tsx"
+      },
+      "verification": "All files in correct folders",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "pattern_name": "Naming Conventions",
+      "description": "Consistent naming across codebase",
+      "rules": {
+        "components": "PascalCase (UserProfile)",
+        "functions": "camelCase (getUserData)",
+        "constants": "UPPER_SNAKE_CASE (API_BASE_URL)",
+        "interfaces": "PascalCase with I prefix (IUserService)",
+        "types": "PascalCase (UserData)",
+        "files": "Match export name"
+      },
+      "verification": "All names follow conventions",
+      "checked_by": ["code-reviewer"]
+    }
+  ]
+}

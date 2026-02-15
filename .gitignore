@@ -1,0 +1,20 @@
+# Test project (created by init.sh, disposable)
+test-framework/
+
+# Dependencies
+node_modules/
+
+# SQLite databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~

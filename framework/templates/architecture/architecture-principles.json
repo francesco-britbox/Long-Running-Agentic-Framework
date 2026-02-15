@@ -1,0 +1,66 @@
+{
+  "_comment": "Generate this file for your stack. Run an interactive Claude session to create principles tailored to your language/framework. This is a starter template.",
+  "principles": [
+    {
+      "id": "DRY-001",
+      "name": "Don't Repeat Yourself",
+      "rule": "No code duplication. Extract to shared functions/components.",
+      "verification_steps": [
+        "Search codebase for duplicate logic patterns",
+        "Check if similar functions exist in shared utilities",
+        "Verify component reusability"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "SOLID-SRP",
+      "name": "Single Responsibility Principle",
+      "rule": "Each component/function has one reason to change",
+      "verification_steps": [
+        "Component handles only one concern",
+        "No mixed UI and business logic",
+        "Clear separation of data access"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer"]
+    },
+    {
+      "id": "SOLID-DIP",
+      "name": "Dependency Inversion Principle",
+      "rule": "Depend on abstractions, not concrete implementations",
+      "verification_steps": [
+        "Services injected via constructor/init",
+        "No direct instantiation of dependencies",
+        "Mock-friendly architecture for testing"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "ERROR-001",
+      "name": "Comprehensive Error Handling",
+      "rule": "All operations that can fail must have error handling",
+      "verification_steps": [
+        "All API calls wrapped in error handlers",
+        "User-friendly error messages",
+        "Errors logged with context"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["code-reviewer", "qa-agent"]
+    },
+    {
+      "id": "TEST-001",
+      "name": "Test Coverage",
+      "rule": "All new code must have tests",
+      "verification_steps": [
+        "New functions have unit tests",
+        "Happy path covered",
+        "Edge cases covered",
+        "Error cases covered"
+      ],
+      "enforcement": "mandatory",
+      "checked_by": ["dev-agent", "qa-agent"]
+    }
+  ]
+}

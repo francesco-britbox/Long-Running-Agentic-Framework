@@ -1,0 +1,60 @@
+{
+  "language_standards": {
+    "file_structure": {
+      "header": "Copyright and file description comment",
+      "imports": "Grouped by external, internal, types",
+      "constants": "File-level constants at top",
+      "types": "Type definitions before implementations",
+      "functions": "Organized by feature, not alphabetically",
+      "exports": "Explicit exports at bottom"
+    },
+    "naming": {
+      "functions": "camelCase with verb prefix (getUserData, calculateTotal)",
+      "variables": "camelCase, descriptive (userData, totalAmount)",
+      "constants": "UPPER_SNAKE_CASE (MAX_RETRIES, API_TIMEOUT)",
+      "classes": "PascalCase (UserService, DataValidator)",
+      "interfaces": "PascalCase with I prefix (IDataService)",
+      "booleans": "is/has/should prefix (isValid, hasPermission)",
+      "private": "underscore prefix (_internalMethod)"
+    },
+    "functions": {
+      "max_length": "50 lines (split if longer)",
+      "max_parameters": "4 parameters (use object if more)",
+      "single_purpose": "One function = one responsibility",
+      "naming": "Verb + noun (getUser, updateProfile, validateInput)"
+    },
+    "comments": {
+      "when": "Public APIs, complex logic, non-obvious decisions",
+      "when_not": "Obvious code (x = x + 1), redundant (// increment x)",
+      "style": "JSDoc for functions, inline for complex blocks",
+      "example": "/** Fetches user data. @param {string} userId @returns {Promise<User>} */"
+    },
+    "error_handling": {
+      "rule": "All async operations must have error handlers",
+      "pattern": "try-catch for sync, .catch() for promises",
+      "logging": "Log errors before handling",
+      "user_messages": "User-friendly, not technical",
+      "example": "try { result = await fetch() } catch (e) { logger.error(e); throw new UserError('Failed to load') }"
+    },
+    "testing": {
+      "coverage": "Aim for 80%+ of new code",
+      "naming": "test_functionName_scenario (test_getUser_validId, test_getUser_invalidId)",
+      "structure": "Arrange-Act-Assert pattern",
+      "mocks": "Use mocks for external dependencies (API, DB)",
+      "location": "tests/ folder mirroring src/"
+    },
+    "imports": {
+      "order": ["External libraries", "Internal modules", "Types", "Styles"],
+      "style": "Named imports preferred over default",
+      "no_wildcards": "Avoid import * except for types"
+    },
+    "formatting": {
+      "indentation": "2 spaces (or language default)",
+      "line_length": "100 characters max",
+      "trailing_commas": "Yes for multi-line",
+      "semicolons": "Required (JS/TS)",
+      "quotes": "Single quotes for strings"
+    }
+  },
+  "checked_by": ["code-reviewer"]
+}

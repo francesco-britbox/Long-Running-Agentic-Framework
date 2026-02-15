@@ -1,0 +1,13 @@
+{
+  "maxRetries": 3,
+  "maxAgentTurns": 50,
+  "progressCompactThreshold": 100,
+  "progressKeepRecent": 20,
+  "model": "claude-sonnet-4-5-20250929",
+  "agents": {
+    "dev": "dev-agent-prompt.md",
+    "reviewer": "code-reviewer-prompt.md",
+    "qa": "qa-agent-prompt.md",
+    "teamLead": "team-lead-prompt.md"
+  }
+}
