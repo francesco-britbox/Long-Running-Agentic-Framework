@@ -1,6 +1,6 @@
 {
   "name": "long-running-agentic-framework",
-  "version": "1.0.0",
+  "version": "0.1.0-beta.1",
   "description": "Language-agnostic multi-agent coding framework with 100% architecture compliance",
   "bin": {
     "framework": "./bin/framework.js"

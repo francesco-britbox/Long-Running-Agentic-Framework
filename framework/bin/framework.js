@@ -7,6 +7,7 @@ const features = require('../lib/features');
 const db = require('../lib/db');
 
 const program = new Command();
+const pkg = require('../package.json');
 
 function resolveRoot(opts) {
   return path.resolve(opts.project || process.cwd());
@@ -15,7 +16,7 @@ function resolveRoot(opts) {
 program
   .name('framework')
   .description('Long-Running Agentic Framework CLI')
-  .version('1.0.0')
+  .version(pkg.version)
   .option('-p, --project <path>', 'Project root directory', process.cwd());
 
 // ── feature commands ──
